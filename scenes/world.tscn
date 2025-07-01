@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw2wxs44jbea8"]
+
+[ext_resource type="PackedScene" uid="uid://tn4tt0tjs5j2" path="res://models/Humanoid.blend" id="1_4wyf3"]
+[ext_resource type="Shader" uid="uid://yp7dqay74jsi" path="res://shaders/ps1_postprocess.gdshader" id="2_k0juu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_4wyf3"]
+sky_material = SubResource("ProceduralSkyMaterial_rwgxs")
+
+[sub_resource type="Environment" id="Environment_k0juu"]
+background_mode = 2
+sky = SubResource("Sky_4wyf3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlwt5"]
+shader = ExtResource("2_k0juu")
+shader_parameter/viewport_size = Vector2(640, 480)
+shader_parameter/virtual_resolution = Vector2(320, 240)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k0juu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.973757, -0.211358, 0.0844115, -0.225351, -0.947306, 0.227657, 0.0318465, -0.240705, -0.970076, 0, 6.54095, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.960894, -0.212563, 0.177482, 0.204224, 0.976816, 0.064216, -0.187017, -0.0254586, 0.982027, 3.06679, 1.55403, 4.57396)
+
+[node name="Humanoid" parent="." instance=ExtResource("1_4wyf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21625, 0, 1.44103)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_tlwt5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
