@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbkoyykjvg0al"]
+
+[ext_resource type="Shader" uid="uid://yp7dqay74jsi" path="res://shaders/ps1_postprocess.gdshader" id="1_cgqaa"]
+
+[resource]
+shader = ExtResource("1_cgqaa")
+shader_parameter/viewport_size = Vector2(640, 480)
+shader_parameter/virtual_resolution = Vector2(320, 240)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw2wxs44jbea8"]
+[gd_scene load_steps=6 format=3 uid="uid://bw2wxs44jbea8"]
 
 [ext_resource type="PackedScene" uid="uid://tn4tt0tjs5j2" path="res://models/Humanoid.blend" id="1_4wyf3"]
-[ext_resource type="Shader" uid="uid://yp7dqay74jsi" path="res://shaders/ps1_postprocess.gdshader" id="2_k0juu"]
+[ext_resource type="Material" uid="uid://cbkoyykjvg0al" path="res://materials/ps1_postprocess_colorrect_mat.tres" id="2_rwgxs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -15,11 +15,6 @@ background_mode = 2
 sky = SubResource("Sky_4wyf3")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlwt5"]
-shader = ExtResource("2_k0juu")
-shader_parameter/viewport_size = Vector2(640, 480)
-shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [node name="World" type="Node3D"]
 
@@ -37,8 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21625, 0, 1.44103)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_tlwt5")
+[node name="PS1GraphicsShader" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("2_rwgxs")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
