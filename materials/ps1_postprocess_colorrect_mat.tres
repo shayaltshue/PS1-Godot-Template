@@ -4,5 +4,7 @@
 
 [resource]
 shader = ExtResource("1_cgqaa")
-shader_parameter/viewport_size = Vector2(640, 480)
-shader_parameter/virtual_resolution = Vector2(320, 240)
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 1
