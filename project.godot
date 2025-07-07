@@ -15,10 +15,6 @@ run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
-
 [display]
 
 window/size/viewport_width=640
